@@ -1,5 +1,7 @@
 package com.emplyeepayrollservices;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
 import java.util.Arrays;
 
 public class EmployeePayrollServiceTest {
@@ -13,6 +15,9 @@ public class EmployeePayrollServiceTest {
         EmployeePayrollService employeePayrollService;
         employeePayrollService = new EmployeePayrollService(Arrays.asList(arrayOfEmploys));
         employeePayrollService.writeEmployeePayrollData(EmployeePayrollService.IOService.FILE_IO);
+        employeePayrollService.printData(EmployeePayrollService.IOService.FILE_IO);
+        long entries = employeePayrollService.countEntries(EmployeePayrollService.IOService.FILE_IO);
+        Assertions.assertEquals(3,entries);
     }
 
 }

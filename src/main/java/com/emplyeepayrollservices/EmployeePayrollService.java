@@ -21,7 +21,7 @@ public class EmployeePayrollService {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService(employeePayrollList);
         Scanner consoleInputReader = new Scanner(System.in);
         employeePayrollService.readEmployeePayrollData(consoleInputReader);
-        employeePayrollService.writeEmployeePayrollData(IOService.CONSOLE_IO);
+        employeePayrollService.writeEmployeePayrollData(IOService.FILE_IO);
     }
 
     private void readEmployeePayrollData(Scanner consoleInputReader){
@@ -39,5 +39,15 @@ public class EmployeePayrollService {
         System.out.println("\nWriting Employee Payroll Roaster to Console\n"+employeePayrollList);
         else if(consoleIo.equals(IOService.FILE_IO))
             new PayRollFileIO().writeDataToAFile(employeePayrollList);
+    }
+
+    public void printData(IOService consoleIo) {
+        if(consoleIo.equals(IOService.FILE_IO))
+            new PayRollFileIO().printData();
+    }
+
+    public long countEntries(IOService consoleIo) {
+        if(consoleIo.equals(IOService.FILE_IO));
+        return new PayRollFileIO().countEntries();
     }
 }
