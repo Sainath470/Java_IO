@@ -52,4 +52,5 @@ public class FileOperationTest {
         Files.list(dir).filter(Files::isRegularFile).forEach(System.out::println);
         new WatchService(dir).processEvents();
     }
+
 }
